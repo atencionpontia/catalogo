@@ -38,7 +38,7 @@ nav .menu li a {
 /* Catálogo de productos */
 .catalogo {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Máximo de 4 columnas */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta columnas automáticamente */
   gap: 20px;
   padding: 20px;
 }
@@ -58,18 +58,18 @@ nav .menu li a {
 
 .producto img {
   width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
-  height: 600px; /* Establece una altura fija para todas las imágenes */
+  height: 300px; /* Ajusta la altura para pantallas pequeñas */
   object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
 }
 
 .producto h3 {
   margin: 10px 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .producto p {
   margin: 5px 0;
-  font-size: 16px;
+  font-size: 14px;
   color: #333;
 }
 
@@ -85,12 +85,13 @@ nav .menu li a {
 
 .producto button {
   margin: 10px 0;
-  padding: 10px 20px;
+  padding: 10px 15px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .producto button:hover {
@@ -111,6 +112,12 @@ nav .menu li a {
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid #ddd;
+  display: inline-block; /* Asegura que se muestren correctamente */
+  box-sizing: border-box;
+}
+
+.color.seleccionado {
+  border: 2px solid #007bff;
 }
 
 .color.blanco {
@@ -145,17 +152,14 @@ nav .menu li a {
    background-color: #FFDEF1;
 }
 
-.color.seleccionado {
-  border: 2px solid #007bff;
-}
-
 /* Tallas */
 .talla {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  padding: 10px 20px;
+  padding: 8px 12px;
   margin: 5px;
   cursor: pointer;
+  font-size: 12px;
 }
 
 .talla.seleccionado {
@@ -176,35 +180,23 @@ nav .menu li a {
   align-items: center;
 }
 
-/* Modal para el contenido */
 .modal-contenido {
   background-color: white;
-  padding: 30px; /* Aumentamos el relleno */
+  padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 350px; /* Aumentamos el tamaño del contenedor */
+  width: 90%; /* Ajuste para dispositivos móviles */
+  max-width: 400px;
   position: relative;
 }
 
-/* Fondo sólido sobre el precio y descripción */
-#modal-precio, #modal-nombre {
-  background-color: #f0f0f0; /* Fondo sólido */
-  padding: 15px; /* Aumentamos el padding para mayor espacio */
-  border-radius: 5px; /* Bordes redondeados */
-  margin: 15px 0; /* Aumentamos el margen */
-}
-
-/* Estilo para la imagen dentro del modal */
 .modal-contenido img {
   width: 100%;
-  max-width: 400px; /* Aumentamos el tamaño máximo de la imagen */
-  max-height: 350px; /* Aumentamos la altura máxima */
-  height: auto;
-  object-fit: contain;
-  margin: 15px 0; /* Aumentamos el espacio alrededor de la imagen */
+  max-width: 350px; /* Controla el tamaño máximo del ancho */
+  max-height: 300px; /* Controla el tamaño máximo de la altura */
+  object-fit: contain; /* Mantiene las proporciones */
+  margin: 10px 0; /* Espaciado adicional */
 }
-
-
 
 .cerrar {
   cursor: pointer;
@@ -214,10 +206,91 @@ nav .menu li a {
   right: 10px;
 }
 
-#modal-tallas .talla {
-  margin: 5px;
+/* Media Queries */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .producto img {
+    height: 200px; /* Reduce la altura de la imagen para pantallas más pequeñas */
+  }
+
+  .producto h3 {
+    font-size: 14px;
+  }
+
+  .producto p {
+    font-size: 12px;
+  }
+
+  .producto button {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
 }
 
-#modal-colores .color {
-  margin: 5px;
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  nav .logo {
+    font-size: 20px;
+  }
+
+  nav .menu {
+    gap: 5px;
+  }
+
+  .producto img {
+    height: 150px; /* Altura más pequeña para pantallas muy pequeñas */
+  }
+
+  .producto {
+    padding: 10px; /* Ajusta el padding del contenedor */
+  }
+
+  .producto h3 {
+    font-size: 13px;
+  }
+
+  .producto p {
+    font-size: 11px;
+  }
+
+  .producto button {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+}
+
+/* Mejoras para menú colapsable */
+@media (max-width: 768px) {
+  nav .menu {
+    display: none; /* Oculta el menú inicialmente */
+  }
+
+  nav .menu-activo {
+    display: flex; /* Muestra el menú al activarlo */
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav .menu-toggle {
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
 }
