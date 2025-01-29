@@ -208,14 +208,16 @@ nav .menu li a {
 
 @media (max-width: 768px) {
   .producto img {
-    height: 350px; /* Aumenta el tamaño de la imagen en móviles */
-    object-fit: contain; /* Evita que la imagen se recorte */
+    width: 100%; /* La imagen ocupa el ancho completo del contenedor */
+    height: auto; /* La altura se ajusta automáticamente */
+    object-fit: contain; /* La imagen no se recorta */
   }
 }
 
 @media (max-width: 480px) {
   .producto img {
-    height: 300px; /* Aumenta el tamaño en pantallas muy pequeñas */
-    object-fit: contain; /* Evita que la imagen se recorte */
+    width: 100%; /* Ancho completo para pantallas pequeñas */
+    height: auto; /* Altura proporcional */
+    object-fit: contain; /* Sin recortes */
   }
 }
