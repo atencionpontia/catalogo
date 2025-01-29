@@ -208,89 +208,13 @@ nav .menu li a {
 
 /* Media Queries */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav .menu {
-    flex-direction: column;
-    gap: 10px;
-  }
-
   .producto img {
-    height: 200px; /* Reduce la altura de la imagen para pantallas más pequeñas */
-  }
-
-  .producto h3 {
-    font-size: 14px;
-  }
-
-  .producto p {
-    font-size: 12px;
-  }
-
-  .producto button {
-    font-size: 12px;
-    padding: 8px 10px;
+    height: 300px; /* Imágenes más grandes en móvil */
   }
 }
 
 @media (max-width: 480px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  nav .logo {
-    font-size: 20px;
-  }
-
-  nav .menu {
-    gap: 5px;
-  }
-
   .producto img {
-    height: 150px; /* Altura más pequeña para pantallas muy pequeñas */
-  }
-
-  .producto {
-    padding: 10px; /* Ajusta el padding del contenedor */
-  }
-
-  .producto h3 {
-    font-size: 13px;
-  }
-
-  .producto p {
-    font-size: 11px;
-  }
-
-  .producto button {
-    font-size: 11px;
-    padding: 6px 8px;
-  }
-}
-
-/* Mejoras para menú colapsable */
-@media (max-width: 768px) {
-  nav .menu {
-    display: none; /* Oculta el menú inicialmente */
-  }
-
-  nav .menu-activo {
-    display: flex; /* Muestra el menú al activarlo */
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  nav .menu-toggle {
-    display: block;
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
+    height: 250px; /* Imágenes aún más grandes en pantallas muy pequeñas */
   }
 }
