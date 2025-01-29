@@ -209,7 +209,7 @@ nav .menu li a {
 /* Ajustes para imágenes más grandes en dispositivos móviles */
 @media (max-width: 768px) {
   .producto img {
-    height: 400px; /* Aumenta el tamaño de la imagen en móviles */
+    height: 600px; /* Aumenta el tamaño de la imagen en móviles */
   }
 }
 
