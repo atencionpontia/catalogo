@@ -206,15 +206,15 @@ nav .menu li a {
   right: 10px;
 }
 
-/* Media Queries */
+/* Ajustes para imágenes más grandes en dispositivos móviles */
 @media (max-width: 768px) {
   .producto img {
-    height: 300px; /* Imágenes más grandes en móvil */
+    height: 400px; /* Aumenta el tamaño de la imagen en móviles */
   }
 }
 
 @media (max-width: 480px) {
   .producto img {
-    height: 250px; /* Imágenes aún más grandes en pantallas muy pequeñas */
+    height: 300px; /* Aumenta el tamaño en pantallas muy pequeñas */
   }
 }
