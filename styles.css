@@ -22,11 +22,12 @@ nav .logo {
   font-weight: bold;
 }
 
-/* Botón de menú desplegable (hamburguesa) */
+/* Estilos para el botón de menú desplegable */
 .menu-toggle {
   display: none; /* Oculto por defecto */
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   width: 30px;
   height: 24px;
   background: transparent;
