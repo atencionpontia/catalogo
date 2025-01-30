@@ -36,8 +36,8 @@
     <h3>Conjunto Leggin + Top Cleopatra</h3>
     <p><span class="precio-original">$60.000,00 COP</span> <span class="precio-descuento">$50.000 COP</span></p>
     <div class="colores">
-      <span class="color olivo" data-color="olivo" data-imagen="GCLegginsOlivo.jpg"></span>
-      <span class="color arena" data-color="arena" data-imagen="BCLegginsArena.jpg"></span>
+      <span class="color olivo" data-color="olivo" data-imagen="GCLegginsOlivo.jpg" data-imagen-adicional="adicionalGCLegginsOlivo.png"></span>
+      <span class="color arena" data-color="arena" data-imagen="BCLegginsArena.jpg" data-imagen-adicional="ruta/imagen-adicional-olivo.jpg"></span>
     </div>
     <div class="tallas">
       <button class="talla" data-talla="S">S</button>
@@ -52,10 +52,10 @@
     <h3>Conjunto Short + Top Cleopatra</h3>
     <p><span class="precio-original">$55.000,00 COP</span> <span class="precio-descuento">$45.000 COP</span></p>
     <div class="colores">
-      <span class="color lila" data-color="lila" data-imagen="GCShortLila.jpg"></span>
-      <span class="color rosa" data-color="rosa" data-imagen="GCShortRosa.jpg"></span>
-      <span class="color olivo" data-color="olivo" data-imagen="GCShortOlivo.jpg"></span>
-      <span class="color arena" data-color="arena" data-imagen="GCShortArena.jpg"></span>
+      <span class="color lila" data-color="lila" data-imagen="GCShortLila.jpg" data-imagen-adicional="ruta/imagen-adicional-olivo.jpg"></span>
+      <span class="color rosa" data-color="rosa" data-imagen="GCShortRosa.jpg" data-imagen-adicional="ruta/imagen-adicional-olivo.jpg"></span>
+      <span class="color olivo" data-color="olivo" data-imagen="GCShortOlivo.jpg" data-imagen-adicional="ruta/imagen-adicional-olivo.jpg"></span>
+      <span class="color arena" data-color="arena" data-imagen="GCShortArena.jpg" data-imagen-adicional="ruta/imagen-adicional-olivo.jpg"></span>
     </div>
     <div class="tallas">
       <button class="talla" data-talla="S">S</button>
@@ -70,7 +70,7 @@
     <h3>Conjunto Leggin + Top Mangas Largas</h3>
     <p><span class="precio-original">$80.000,00 COP</span> <span class="precio-descuento">$60.000,00 COP</span></p>
     <div class="colores">
-      <span class="color negro" data-color="negro" data-imagen="GBLeggins.jpg"></span>
+      <span class="color negro" data-color="negro" data-imagen="GBLeggins.jpg" data-imagen-adicional="ruta/imagen-adicional-olivo.jpg"></span>
     </div>
     <div class="tallas">
       <button class="talla" data-talla="S">S</button>
@@ -85,8 +85,8 @@
     <h3>Conjunto Leggin + Top Fresh Flex</h3>
     <p><span class="precio-original">$110.000,00 COP</span> <span class="precio-descuento">$80.000,00 COP</span></p>
     <div class="colores">
-      <span class="color blanco" data-color="blanco" data-imagen="FFBlanco.jpg"></span>
-      <span class="color negro" data-color="negro" data-imagen="FFNegro.jpg"></span>
+      <span class="color blanco" data-color="blanco" data-imagen="FFBlanco.jpg" data-imagen-adicional="ruta/imagen-adicional-olivo.jpg"></span>
+      <span class="color negro" data-color="negro" data-imagen="FFNegro.jpg" data-imagen-adicional="ruta/imagen-adicional-olivo.jpg"></span>
     </div>
     <div class="tallas">
       <button class="talla" data-talla="S">S</button>
@@ -101,7 +101,7 @@
     <h3>Conjunto Leggin + Top Fresh Flex</h3>
     <p><span class="precio-original">$110.000,00 COP</span> <span class="precio-descuento">$80.000,00 COP</span></p>
     <div class="colores">
-      <span class="color negro" data-color="negro" data-imagen="FFI.png"></span>
+      <span class="color negro" data-color="negro" data-imagen="FFI.png" data-imagen-adicional="ruta/imagen-adicional-olivo.jpg"></span>
     </div>
     <div class="tallas">
       <button class="talla" data-talla="S">S</button>
@@ -114,28 +114,30 @@
 
 
   <!-- Modal para detalles del producto -->
-  <div class="modal" id="modal">
-    <div class="modal-contenido">
-      <span class="cerrar">&times;</span>
-      <h2 id="modal-nombre"></h2>
-      <img id="modal-imagen" src="" alt="">
-      <p id="modal-precio"></p>
-      <label for="talla">Talla:</label>
-      <div id="modal-tallas">
-        <button class="talla" data-talla="S">S</button>
-        <button class="talla" data-talla="M">M</button>
-        <button class="talla" data-talla="L">L</button>
-      </div>
-      <label for="color">Color:</label>
-      <div id="modal-colores">
-        <button class="color negro" data-color="Negro"></button>
-        <button class="color marron" data-color="Marrón"></button>
-        <button class="color azul" data-color="Azul"></button>
-        <button class="color rojo" data-color="Rojo"></button>
-      </div>
-      <button id="enviar-whatsapp">Enviar por WhatsApp</button>
+<div class="modal" id="modal">
+  <div class="modal-contenido">
+    <span class="cerrar">&times;</span>
+    <h2 id="modal-nombre"></h2>
+    <img id="modal-imagen" src="" alt="">
+    <!-- Nueva imagen adicional -->
+    <img id="modal-imagen-adicional" src="" alt="" style="display: none; margin-top: 10px;">
+    <p id="modal-precio"></p>
+    <label for="talla">Talla:</label>
+    <div id="modal-tallas">
+      <button class="talla" data-talla="S">S</button>
+      <button class="talla" data-talla="M">M</button>
+      <button class="talla" data-talla="L">L</button>
     </div>
+    <label for="color">Color:</label>
+    <div id="modal-colores">
+      <button class="color negro" data-color="Negro"></button>
+      <button class="color marron" data-color="Marrón"></button>
+      <button class="color azul" data-color="Azul"></button>
+      <button class="color rojo" data-color="Rojo"></button>
+    </div>
+    <button id="enviar-whatsapp">Enviar por WhatsApp</button>
   </div>
+</div>
 
   <!-- Modal de advertencia si no se selecciona talla o color -->
   <div id="modal-advertencia" class="modal">

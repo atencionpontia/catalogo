@@ -96,67 +96,75 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Agregar la funcionalidad para abrir el modal con los detalles del producto
-  const botonesVerDetalle = document.querySelectorAll(".ver-detalle");
+ // Agregar la funcionalidad para abrir el modal con los detalles del producto
+const botonesVerDetalle = document.querySelectorAll(".ver-detalle");
 
-  botonesVerDetalle.forEach(boton => {
-    boton.addEventListener("click", () => {
-      // Si no se ha seleccionado color o talla, mostrar el modal de advertencia
-      if (!colorSeleccionado || !tallaSeleccionada) {
-        mensajeAdvertencia.textContent = "Por favor, selecciona tanto un color como una talla para continuar.";
-        modalAdvertencia.style.display = "flex";
-        return;
-      }
+botonesVerDetalle.forEach(boton => {
+  boton.addEventListener("click", () => {
+    // Si no se ha seleccionado color o talla, mostrar el modal de advertencia
+    if (!colorSeleccionado || !tallaSeleccionada) {
+      mensajeAdvertencia.textContent = "Por favor, selecciona tanto un color como una talla para continuar.";
+      modalAdvertencia.style.display = "flex";
+      return;
+    }
 
-      // Encuentra el producto relacionado
-      const producto = boton.closest(".producto");
-      const nombreProducto = producto.querySelector("h3").textContent;
-      const imagenProducto = producto.querySelector(".imagen-producto").src;
-      const precioProducto = producto.querySelector(".precio-descuento").textContent;
+    // Encuentra el producto relacionado
+    const producto = boton.closest(".producto");
+    const nombreProducto = producto.querySelector("h3").textContent;
+    const imagenProducto = producto.querySelector(".imagen-producto").src;
+    const precioProducto = producto.querySelector(".precio-descuento").textContent;
 
-      // Actualiza los detalles del modal
-      modalNombre.textContent = nombreProducto;
-      modalImagen.src = imagenProducto;
-      modalImagen.alt = nombreProducto;
-      modalPrecio.textContent = `Precio: ${precioProducto}`;
+    // Obtener la imagen adicional relacionada con el color seleccionado
+    const imagenAdicional = colorSeleccionado.dataset.imagenAdicional;
 
-      // Limpiar y agregar los colores seleccionados al modal
-      modalColores.innerHTML = '';
-      const coloresProducto = producto.querySelectorAll(".color");
-      coloresProducto.forEach(color => {
-        const colorButton = document.createElement("button");
-        colorButton.classList.add("color", color.classList[1]);
-        colorButton.dataset.color = color.dataset.color;
-        modalColores.appendChild(colorButton);
-      });
+    // Actualiza los detalles del modal
+    modalNombre.textContent = nombreProducto;
+    modalImagen.src = imagenProducto;
+    modalImagen.alt = nombreProducto;
+    modalPrecio.textContent = `Precio: ${precioProducto}`;
 
-      // Limpiar y agregar las tallas seleccionadas al modal
-      modalTallas.innerHTML = '';
-      const tallasProducto = producto.querySelectorAll(".talla");
-      tallasProducto.forEach(talla => {
-        const tallaButton = document.createElement("button");
-        tallaButton.classList.add("talla");
-        tallaButton.textContent = talla.textContent;
-        tallaButton.dataset.talla = talla.dataset.talla;
-        modalTallas.appendChild(tallaButton);
-      });
+    // Mostrar la nueva imagen adicional
+    const modalImagenAdicional = document.getElementById("modal-imagen-adicional");
+    modalImagenAdicional.src = imagenAdicional;
+    modalImagenAdicional.style.display = "block"; // Mostrar la imagen adicional
 
-      // Resaltar el color seleccionado previamente en el modal
-      if (colorSeleccionado) {
-        const colorModal = Array.from(modalColores.children).find(c => c.dataset.color === colorSeleccionado.dataset.color);
-        if (colorModal) colorModal.classList.add("seleccionado");
-      }
-
-      // Resaltar la talla seleccionada previamente en el modal
-      if (tallaSeleccionada) {
-        const tallaModal = Array.from(modalTallas.children).find(t => t.dataset.talla === tallaSeleccionada.dataset.talla);
-        if (tallaModal) tallaModal.classList.add("seleccionado");
-      }
-
-      // Muestra el modal
-      modal.style.display = "flex";
+    // Limpiar y agregar los colores seleccionados al modal
+    modalColores.innerHTML = '';
+    const coloresProducto = producto.querySelectorAll(".color");
+    coloresProducto.forEach(color => {
+      const colorButton = document.createElement("button");
+      colorButton.classList.add("color", color.classList[1]);
+      colorButton.dataset.color = color.dataset.color;
+      modalColores.appendChild(colorButton);
     });
+
+    // Limpiar y agregar las tallas seleccionadas al modal
+    modalTallas.innerHTML = '';
+    const tallasProducto = producto.querySelectorAll(".talla");
+    tallasProducto.forEach(talla => {
+      const tallaButton = document.createElement("button");
+      tallaButton.classList.add("talla");
+      tallaButton.textContent = talla.textContent;
+      tallaButton.dataset.talla = talla.dataset.talla;
+      modalTallas.appendChild(tallaButton);
+    });
+
+    // Resaltar el color seleccionado previamente en el modal
+    if (colorSeleccionado) {
+      const colorModal = Array.from(modalColores.children).find(c => c.dataset.color === colorSeleccionado.dataset.color);
+      if (colorModal) colorModal.classList.add("seleccionado");
+    }
+
+    // Resaltar la talla seleccionada previamente en el modal
+    if (tallaSeleccionada) {
+      const tallaModal = Array.from(modalTallas.children).find(t => t.dataset.talla === tallaSeleccionada.dataset.talla);
+      if (tallaModal) tallaModal.classList.add("seleccionado");
+    }
+
+    // Muestra el modal
+    modal.style.display = "flex";
   });
+});
 
   // Cerrar el modal al hacer clic en la "X"
   botonCerrar.addEventListener("click", () => {
