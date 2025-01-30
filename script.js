@@ -119,7 +119,7 @@ botonesVerDetalle.forEach(boton => {
 
     // Actualiza los detalles del modal
     modalNombre.textContent = nombreProducto;
-    modalImagen.src = imagenProducto;
+    //modalImagen.src = imagenProducto;
     modalImagen.alt = nombreProducto;
     modalPrecio.textContent = `Precio: ${precioProducto}`;
 
