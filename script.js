@@ -1,4 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Seleccionar elementos del menú desplegable
+  const menuToggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".menu");
+
+  // Funcionalidad del menú desplegable
+  menuToggle.addEventListener("click", () => {
+    menu.classList.toggle("active"); // Alternar la clase 'active' en el menú
+    menuToggle.classList.toggle("active"); // Alternar la clase 'active' en el botón
+  });
+
+  // Cerrar el menú al hacer clic en un enlace (opcional)
+  menu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.remove("active"); // Cerrar el menú
+      menuToggle.classList.remove("active"); // Restaurar el botón
+    });
+  });
+
+  // Resto del código JavaScript (funcionalidades del catálogo)
   const colores = document.querySelectorAll(".color"); // Selecciona todos los elementos de color
   const tallas = document.querySelectorAll(".talla"); // Selecciona todos los elementos de talla
 
