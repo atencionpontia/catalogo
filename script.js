@@ -111,7 +111,6 @@ botonesVerDetalle.forEach(boton => {
     // Encuentra el producto relacionado
     const producto = boton.closest(".producto");
     const nombreProducto = producto.querySelector("h3").textContent;
-    const imagenProducto = producto.querySelector(".imagen-producto").src;
     const precioProducto = producto.querySelector(".precio-descuento").textContent;
 
     // Obtener la imagen adicional relacionada con el color seleccionado
@@ -119,14 +118,12 @@ botonesVerDetalle.forEach(boton => {
 
     // Actualiza los detalles del modal
     modalNombre.textContent = nombreProducto;
-    //modalImagen.src = imagenProducto;
-    modalImagen.alt = nombreProducto;
     modalPrecio.textContent = `Precio: ${precioProducto}`;
 
-    // Mostrar la nueva imagen adicional
+    // Mostrar solo la imagen adicional
     const modalImagenAdicional = document.getElementById("modal-imagen-adicional");
     modalImagenAdicional.src = imagenAdicional;
-    modalImagenAdicional.style.display = "block"; // Mostrar la imagen adicional
+    modalImagenAdicional.alt = nombreProducto; // Agregar texto alternativo
 
     // Limpiar y agregar los colores seleccionados al modal
     modalColores.innerHTML = '';
