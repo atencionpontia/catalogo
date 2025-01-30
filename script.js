@@ -17,6 +17,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Funcionalidad de filtrado por categoría
+  const enlacesCategorias = document.querySelectorAll(".menu a[data-categoria]");
+  const productos = document.querySelectorAll(".producto");
+
+  enlacesCategorias.forEach(enlace => {
+    enlace.addEventListener("click", (event) => {
+      event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+
+      const categoriaSeleccionada = enlace.dataset.categoria; // Obtener la categoría seleccionada
+
+      // Mostrar u ocultar productos según la categoría
+      productos.forEach(producto => {
+        const categoriaProducto = producto.dataset.categoria;
+
+        if (categoriaSeleccionada === "todos" || categoriaProducto === categoriaSeleccionada) {
+          producto.style.display = "block"; // Mostrar el producto
+        } else {
+          producto.style.display = "none"; // Ocultar el producto
+        }
+      });
+    });
+  });
+
   // Resto del código JavaScript (funcionalidades del catálogo)
   const colores = document.querySelectorAll(".color"); // Selecciona todos los elementos de color
   const tallas = document.querySelectorAll(".talla"); // Selecciona todos los elementos de talla
